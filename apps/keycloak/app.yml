@@ -17,10 +17,6 @@ spec:
        auth:
         adminUser: admin
         adminPassword: 44000-monkeys 
-       ingress:
-        enabled: true
-        hostname: keycloak.local
-        servicePort: https
   destination:
     server: "https://kubernetes.default.svc"
     namespace: keykl
