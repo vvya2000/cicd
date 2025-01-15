@@ -12,8 +12,6 @@ spec:
     helm:
       releaseName: keycloak
       values: |
-       global:
-        defaultStorageClass: local-storage
        auth:
         adminUser: admin
         adminPassword: 44000-monkeys 
