@@ -1,37 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: keycloak
+  name     : keycloak
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  source:
-    chart: keycloak
-    targetRevision: 24.2.0
-    repoURL: https://charts.bitnami.com/bitnami
-    helm:
-      releaseName: keycloak
-      values: |
-       global:
-        defaultStorageClass: local-storage
-       auth:
-        adminUser: admin
-        adminPassword: 44000-monkeys 
-       ingress:
-        enabled: true
-        hostname: keycloak.local
-        servicePort: https
-        tls: true
-        selfSigned: true
-        
   destination:
-    name: in-cluster
+    name     : in-cluster
     namespace: keykl
+  source:
+    path   : "charts/keycloak"
+    repoURL: "git@github.com:vvya2000/cicd.gi"
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+      - values.yaml
   project: default
   syncPolicy:
     automated:
-      prune: true
+      prune   : true
       selfHeal: true
     syncOptions:
-      - CreateNamespace=true
+      - CreateNamespace=true 
