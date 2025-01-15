@@ -11,8 +11,6 @@ spec:
     repoURL: https://charts.bitnami.com/bitnami
     helm:
       releaseName: keycloak
-      values:
-      
   destination:
     server: "https://kubernetes.default.svc"
     namespace: keykl
