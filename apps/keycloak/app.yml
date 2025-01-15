@@ -12,6 +12,8 @@ spec:
     helm:
       releaseName: keycloak
       values: |
+       global:
+        defaultStorageClass: local-storage
        auth:
         adminUser: admin
         adminPassword: 44000-monkeys 
@@ -19,7 +21,8 @@ spec:
         enabled: true
         hostname: keycloak.local
         servicePort: https
-        tls: true
+        tls: 
+         enabled: true
          selfSigned: true 
   destination:
     server: "https://kubernetes.default.svc"
