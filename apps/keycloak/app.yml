@@ -11,7 +11,7 @@ spec:
     namespace: keykl
   source:
     path   : "charts/keycloak"
-    repoURL: "git@github.com:vvya2000/cicd.gi"
+    repoURL: "git@github.com:vvya2000/cicd.git"
     targetRevision: HEAD
     helm:
       valueFiles:
