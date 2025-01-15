@@ -10,7 +10,7 @@ spec:
     repoURL: https://charts.bitnami.com/bitnami
     helm:
       releaseName: keycloak
-      values: 
+      values: |
        global:
         defaultStorageClass: local-storage
        auth:
