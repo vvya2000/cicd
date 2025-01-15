@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name      : keycloak
+  namespace : argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project   : default
+  source:
+    path   : "charts/keycloak"
+    chart  : keycloak
+    targetRevision: 24.0.4
+    repoURL: "https://github.com/vvya2000/cicd.git"
+    helm:
+      releaseName: keycloak
+      valueFiles :
+      - values.yaml
+  destination:
+    name     : in-cluster
+    namespace: dev  
+  syncPolicy:
+    automated:
+      prune   : true
+      selfHeal: true
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
+    - PrunePropagationPolicy=foreground
+    - PruneLast=true
