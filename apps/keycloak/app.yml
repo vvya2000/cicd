@@ -21,9 +21,6 @@ spec:
         enabled: true
         hostname: keycloak.local
         servicePort: https
-        tls: 
-         enabled: true
-         selfSigned: true 
   destination:
     server: "https://kubernetes.default.svc"
     namespace: keykl
