@@ -13,7 +13,7 @@ spec:
       values: 
       - repoURL: https://github.com/vvya2000/cicd.git
         targetRevision: HEAD
-        path: apps/keycloak/values/values.yml
+        path: apps/keycloak/values/
 
   destination:
     server: "https://kubernetes.default.svc"
