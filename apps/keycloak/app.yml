@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     chart: keycloak
-    targetRevision: 24.0.4
+    targetRevision: 26.0.8
     repoURL: https://charts.bitnami.com/bitnami
     helm:
       releaseName: keycloak
