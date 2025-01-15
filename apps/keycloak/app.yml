@@ -3,8 +3,9 @@ kind: Application
 metadata:
   name: keycloak
   namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
   source:
     chart: keycloak
     targetRevision: 24.2.0
@@ -22,17 +23,15 @@ spec:
         hostname: keycloak.local
         servicePort: https
         tls: true
-        selfSigned: true 
+        selfSigned: true
+        
   destination:
     name: in-cluster
     namespace: keykl
-
+  project: default
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - Validate=true
-    - CreateNamespace=true
-    - PrunePropagationPolicy=foreground
-    - PruneLast=true
+      - CreateNamespace=true
