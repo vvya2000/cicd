@@ -1,0 +1,11 @@
+       global:
+        defaultStorageClass: local-storage
+       auth:
+        adminUser: admin
+        adminPassword: 44000-monkeys 
+       ingress:
+        enabled: true
+        hostname: keycloak.local
+        servicePort: https
+        tls: true
+        selfSigned: true 
