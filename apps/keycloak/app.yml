@@ -8,7 +8,7 @@ spec:
   source:
     chart: keycloak
     targetRevision: 24.0.4
-    repoURL: oci://registry-1.docker.io/bitnamicharts/keycloak
+    repoURL: https://charts.bitnami.com/bitnami
     helm:
       releaseName: keycloak
       valueFiles:
