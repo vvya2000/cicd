@@ -4,6 +4,7 @@ metadata:
   name: keycloak
   namespace: argocd
 spec:
+  project: default
   source:
     chart: keycloak
     targetRevision: 24.2.0
@@ -21,15 +22,17 @@ spec:
         hostname: keycloak.local
         servicePort: https
         tls: true
-        selfSigned: true
-        
+        selfSigned: true 
   destination:
-    name: in-cluster
+    server: "https://kubernetes.default.svc"
     namespace: keykl
-  project: default
+
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-      - CreateNamespace=true
+    - Validate=true
+    - CreateNamespace=true
+    - PrunePropagationPolicy=foreground
+    - PruneLast=true
