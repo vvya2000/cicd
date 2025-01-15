@@ -11,18 +11,8 @@ spec:
     repoURL: https://charts.bitnami.com/bitnami
     helm:
       releaseName: keycloak
-      values: |
-       global:
-        defaultStorageClass: local-storage
-       auth:
-        adminUser: admin
-        adminPassword: 44000-monkeys 
-       ingress:
-        enabled: true
-        hostname: keycloak.local
-        servicePort: https
-        tls: true
-        selfSigned: true 
+      valueFiles:
+      - https://raw.githubusercontent.com/vvya2000/cicd/refs/heads/main/apps/keycloak/values.yaml
   destination:
     server: "https://kubernetes.default.svc"
     namespace: keykl
