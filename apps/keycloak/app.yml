@@ -11,10 +11,8 @@ spec:
     repoURL: https://charts.bitnami.com/bitnami
     helm:
       releaseName: keycloak
-      values: |
-       auth:
-        adminUser: admin
-        adminPassword: 44000-monkeys 
+      values:
+      
   destination:
     server: "https://kubernetes.default.svc"
     namespace: keykl
