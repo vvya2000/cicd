@@ -1,0 +1,2 @@
+container:
+  image: bahaterenko/ipn-controller:sha-placeholder

@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ipn-controller-ingress
+  namespace: dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod-dns
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - ipn-controller-dev.inbmonitoring.net
+      secretName: ipn-controller-dns-tls
+  rules:
+    - host: ipn-controller-dev.inbmonitoring.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Release.Name }}
+                port:
+                  number: 3001
